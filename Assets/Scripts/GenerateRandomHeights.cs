@@ -82,6 +82,13 @@ public class GenerateRandomHeights : MonoBehaviour
     [SerializeField]
     private float waterHeight = 0.3f;
 
+    [Header("Smoke")]
+    [SerializeField]
+    private GameObject smoke;
+
+    [SerializeField]
+    private float SmokeHeight = 0.3f;
+
     void Start()
     {
         if(terrain == null)
@@ -96,6 +103,7 @@ public class GenerateRandomHeights : MonoBehaviour
         AddTerrainTextures();
         AddTrees();
         AddWater();
+        AddClouds();
     }
 
     private void GenerateHeights()
@@ -273,6 +281,14 @@ public class GenerateRandomHeights : MonoBehaviour
         waterGameObject.transform.position = this.transform.position + new Vector3(terrainData.size.x / 2, waterHeight * terrainData.size.y,
         terrainData.size.z / 2);
         waterGameObject.transform.localScale = new Vector3(terrainData.size.x, 1, terrainData.size.z);
+    }
+    private void AddClouds()
+    {
+        GameObject smokeGameObject = Instantiate(smoke, this.transform.position, this.transform.rotation);
+        smokeGameObject.name = "Smoke";
+        smokeGameObject.transform.position = this.transform.position + new Vector3(terrainData.size.x / 2, waterHeight * terrainData.size.y,
+        terrainData.size.z / 2);
+        smokeGameObject.transform.localScale = new Vector3(terrainData.size.x, 1, terrainData.size.z);
     }
 
     private void OnDestroy()
