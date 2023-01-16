@@ -29,7 +29,19 @@ public class City02 : MonoBehaviour
     private int basePavement01LengthSize = 15;
 
     [SerializeField]
+    private int basePavement02LengthSize = 15;
+
+    [SerializeField]
+    private int basePavement03LengthSize = 15;
+
+    [SerializeField]
     private int basePavement01DepthSize = 2;
+
+    [SerializeField]
+    private int baseInner01PavementLengthSize = 15;
+
+    [SerializeField]
+    private int baseInner02PavementLengthSize = 15;
 
     [SerializeField]
     private int baseInnerPavementLengthSize = 15;
@@ -181,7 +193,7 @@ public class City02 : MonoBehaviour
         }
         Vector3 rotation = new Vector3(0, 0f, 0);
         Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(-3.32f,3.29f,28.58f);
+        Road.transform.position = new Vector3(26.68f,3.29f,28.58f);
         Road.AddComponent<BoxCollider>();
     }
 
@@ -296,7 +308,7 @@ public class City02 : MonoBehaviour
 
         for (int height = 0; height < basePavement01DepthSize; height++)
         {
-            for (int length = 0; length < basePavement01LengthSize; length++)
+            for (int length = 0; length < basePavement03LengthSize; length++)
             {
 
                 GameObject cubeObject = new GameObject();
@@ -314,7 +326,7 @@ public class City02 : MonoBehaviour
         }
         Vector3 rotation = new Vector3(0, 0f, 0);
         Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(-5.32f, 3.49f, 32.54f);
+        Road.transform.position = new Vector3(24.68f, 3.49f, 32.54f);
     }
 
     private void CreatePavement1()
@@ -346,7 +358,7 @@ public class City02 : MonoBehaviour
         }
         Vector3 rotation = new Vector3(0, 90f, 0);
         Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(-5.32f, 3.49f, 32.55f);
+        Road.transform.position = new Vector3(-5.32f, 3.49f, 30.60f);
     }
 
     private void CreatePavement2()
@@ -358,9 +370,9 @@ public class City02 : MonoBehaviour
         Vector3 nextPosition = new Vector3(0, 0f, 0f);
         float cubeDepth = 0;
 
-        for (int height = 0; height < basePavement01DepthSize; height++)
+        for (int height = 0; height < basePavementDepthSize; height++)
         {
-            for (int length = 0; length < basePavement01LengthSize; length++)
+            for (int length = 0; length < basePavement02LengthSize; length++)
             {
 
                 GameObject cubeObject = new GameObject();
@@ -390,38 +402,6 @@ public class City02 : MonoBehaviour
         Vector3 nextPosition = new Vector3(0, 0f, 0f);
         float cubeDepth = 0;
 
-        for (int height = 0; height < basePavementDepthSize; height++)
-        {
-            for (int length = 0; length < basePavementLengthSize; length++)
-            {
-
-                GameObject cubeObject = new GameObject();
-                cubeObject.name = "Cube " + height + "-" + length;
-                cubeObject.AddComponent<Cube>();
-                cubeObject.GetComponent<Cube>().UpdateCubeSize(baseCubeSize);
-                cubeObject.GetComponent<Cube>().SetCubeColor(1);
-                cubeObject.transform.parent = Road.transform;
-                cubeObject.transform.position = nextPosition;
-                nextPosition.x = nextPosition.x + (cubeObject.GetComponent<Cube>().CubeSize().x * 2);
-                cubeDepth = (cubeObject.GetComponent<Cube>().CubeSize().z * 2);
-            }
-            nextPosition.x = 0;
-            nextPosition.z = nextPosition.z + cubeDepth;
-        }
-        Vector3 rotation = new Vector3(0, 90f, 0);
-        Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(30.68f, 3.49f, 32.58f);
-    }
-
-    private void CreateInnerPavement()
-    {
-        GameObject Road = new GameObject();
-        Road.name = "InnerPavement1";
-        Road.transform.parent = transform;
-
-        Vector3 nextPosition = new Vector3(0, 0f, 0f);
-        float cubeDepth = 0;
-
         for (int height = 0; height < baseInnerPavementDepthSize; height++)
         {
             for (int length = 0; length < baseInnerPavementLengthSize; length++)
@@ -440,9 +420,41 @@ public class City02 : MonoBehaviour
             nextPosition.x = 0;
             nextPosition.z = nextPosition.z + cubeDepth;
         }
+        Vector3 rotation = new Vector3(0, 90f, 0);
+        Road.transform.Rotate(rotation);
+        Road.transform.position = new Vector3(30.68f, 3.49f, 26.51f);
+    }
+
+    private void CreateInnerPavement()
+    {
+        GameObject Road = new GameObject();
+        Road.name = "InnerPavement1";
+        Road.transform.parent = transform;
+
+        Vector3 nextPosition = new Vector3(0, 0f, 0f);
+        float cubeDepth = 0;
+
+        for (int height = 0; height < baseInnerPavementDepthSize; height++)
+        {
+            for (int length = 0; length < baseInner02PavementLengthSize; length++)
+            {
+
+                GameObject cubeObject = new GameObject();
+                cubeObject.name = "Cube " + height + "-" + length;
+                cubeObject.AddComponent<Cube>();
+                cubeObject.GetComponent<Cube>().UpdateCubeSize(baseCubeSize);
+                cubeObject.GetComponent<Cube>().SetCubeColor(1);
+                cubeObject.transform.parent = Road.transform;
+                cubeObject.transform.position = nextPosition;
+                nextPosition.x = nextPosition.x + (cubeObject.GetComponent<Cube>().CubeSize().x * 2);
+                cubeDepth = (cubeObject.GetComponent<Cube>().CubeSize().z * 2);
+            }
+            nextPosition.x = 0;
+            nextPosition.z = nextPosition.z + cubeDepth;
+        }
         Vector3 rotation = new Vector3(0, 0f, 0);
         Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(0.68f, 3.49f, 26.58f);
+        Road.transform.position = new Vector3(32.6f, 3.49f, 26.5f);
     }
 
     private void CreateInnerPavement1()
@@ -474,7 +486,7 @@ public class City02 : MonoBehaviour
         }
         Vector3 rotation = new Vector3(0, 90f, 0);
         Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(0.68f, 3.49f, 24.58f);
+        Road.transform.position = new Vector3(0.7f, 3.49f, 30.61f);
     }
 
     private void CreateInnerPavement2()
@@ -488,7 +500,7 @@ public class City02 : MonoBehaviour
 
         for (int height = 0; height < baseInnerPavementDepthSize; height++)
         {
-            for (int length = 0; length < baseInnerPavementLengthSize; length++)
+            for (int length = 0; length < baseInner01PavementLengthSize; length++)
             {
 
                 GameObject cubeObject = new GameObject();
@@ -538,7 +550,7 @@ public class City02 : MonoBehaviour
         }
         Vector3 rotation = new Vector3(0, 90f, 0);
         Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(24.68f, 3.49f, 24.58f);
+        Road.transform.position = new Vector3(24.68f, 3.49f, 31.6f);
     }
     #endregion
 
@@ -764,7 +776,7 @@ public class City02 : MonoBehaviour
         }
         Vector3 rotation = new Vector3(90f, 0f, 0);
         Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(3.68f, 2.54f, 29.58f);
+        Road.transform.position = new Vector3(33.68f, 2.54f, 29.58f);
     }
 
     private void CreateStreetLine7()
@@ -796,7 +808,7 @@ public class City02 : MonoBehaviour
         }
         Vector3 rotation = new Vector3(90f, 0f, 0);
         Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(15.68f, 2.54f, 29.58f);
+        Road.transform.position = new Vector3(45.68f, 2.54f, 29.58f);
     }
     #endregion
 
@@ -830,7 +842,7 @@ public class City02 : MonoBehaviour
         }
         Vector3 rotation = new Vector3(90f, 0f, 0);
         Road.transform.Rotate(rotation);
-        Road.transform.position = new Vector3(-4.16f + randomNumber, 12.51f, 36.6f);
+        Road.transform.position = new Vector3(25.75f + randomNumber, 12.51f, 36.6f);
     }
 
     private void CreateBuilding1(float randomNumber)

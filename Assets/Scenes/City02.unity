@@ -224,14 +224,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333416213}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.13, y: 3.828, z: -4.917}
-  m_LocalScale: {x: 0.51, y: 1.05, z: 4.23}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -2.16, y: 3.828, z: 31.02}
+  m_LocalScale: {x: 0.51, y: 1.05, z: 8.11}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &474650132
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,8 +428,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657937777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.65, y: 4.41, z: -4.917}
-  m_LocalScale: {x: 4.39, y: 2.11, z: 4.23}
+  m_LocalPosition: {x: 53.41, y: 4.41, z: 29.39}
+  m_LocalScale: {x: 4.39, y: 2.11, z: 9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044044396}
-  - component: {fileID: 1044044395}
+  - component: {fileID: 1044044397}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -452,7 +452,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1044044395
+--- !u!4 &1044044396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044044394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1044044397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -461,26 +476,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1044044394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0756fba570d1d41b206e2cd90510f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b79b9c0580b42d42b02630854050e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 4674120941795995865, guid: 2eb16288e45d96249bab014d89e8d8e4,
     type: 3}
---- !u!4 &1044044396
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044044394}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1540003, y: 3.6599941, z: -4.9170036}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1267131409
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,9 +534,13 @@ MonoBehaviour:
   baseDepthSize: 2
   basePavementLengthSize: 20
   basePavementDepthSize: 1
-  basePavement01LengthSize: 19
+  basePavement01LengthSize: 15
+  basePavement02LengthSize: 19
+  basePavement03LengthSize: 18
   basePavement01DepthSize: 1
-  baseInnerPavementLengthSize: 13
+  baseInner01PavementLengthSize: 13
+  baseInner02PavementLengthSize: 14
+  baseInnerPavementLengthSize: 17
   baseInnerPavementDepthSize: 1
   baseStreetLineLengthSize: 4
   baseStreetLineDepthSize: 1
